@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import "@styles/Header.scss";
+import { NavLink } from "react-router-dom";
 
 import menu from "@icons/icon_menu.svg";
 import logo from "@logos/logo_yard_sale.svg";
@@ -16,13 +17,13 @@ const Header = () => {
       <div className="navbar-left">
         <ul>
           <li>
-            <a href="/">Home</a>
+          <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <a href="/">Pacientes</a>
+            <NavLink to="/patients">Pacientes</NavLink>
           </li>
           <li>
-            <a href="/">Medicos</a>
+            <NavLink to="/doctors">Médicos</NavLink>
           </li>
         </ul>
       </div>

@@ -7,6 +7,8 @@ import PasswordRecovery from '../pages/PasswordRecovery';
 import NewPassword from '../pages/NewPassword';
 import MyAccount from '../pages/MyAccount';
 import AddPatient from '../pages/AddPatient';
+import Patients from '../pages/Patients';
+import Doctors from '../pages/Doctors';
 import CreateAccount from '../pages/CreateAccount';
 import NotFound from '../pages/NotFound';
 import '@styles/global.css';
@@ -26,6 +28,8 @@ const App = () => {
 					<Route exact path="/new-password" component={NewPassword} />
 					<Route exact path="/account" component={MyAccount} />
 					<Route exact path="/signup" component={CreateAccount} />
+					<Route exact path="/patients" component={Patients} />
+					<Route exact path="/doctors" component={Doctors} />
 					<Route exact path="/add-patient" component={AddPatient} />
 					<Route path="*" component={NotFound} />
 				</Switch>
