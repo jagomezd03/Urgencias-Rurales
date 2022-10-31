@@ -1,0 +1,42 @@
+@import 'vars';
+
+.Menu {
+	width: 100px;
+	height: auto;
+	border: 1px solid var(--third-color);
+	border-radius: 0 0 6px 6px ;
+	border-top: none;
+	padding: 20px 20px 0 20px;
+	position: absolute;
+	top: 62px;
+	width: 140px;
+	right: 24px;
+	background-color: var(--black);
+	color: var(--third-color);;
+}
+.Menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+}
+.Menu ul li {
+	text-align: left;
+}
+.Menu ul li:nth-child(1),
+.Menu ul li:nth-child(2) {
+	font-weight: bold;
+}
+.Menu ul li:last-child {
+	padding-top: 20px;
+	border-top: 1px solid var(--third-color);
+}
+.Menu ul li:last-child a {
+	font-size: var(--sm);
+}
+.Menu ul li a {
+	color: var(--back);
+	text-decoration: none;
+	margin-bottom: 20px;
+	display: inline-block;
+}
