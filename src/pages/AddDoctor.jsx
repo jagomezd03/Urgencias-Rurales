@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '@styles/CreateForm.scss';
+import { sendFormData } from '../lib/api';
 
 const AddDoctor = () => {
 	const url = "";
@@ -22,6 +23,7 @@ function handleData(event) {
 	newDoctor[event.target.id] = event.target.value;
 	setDoctor(newDoctor)
 	console.log(newDoctor);
+	sendFormData(data)
 }
 
 
@@ -35,7 +37,7 @@ function handleData(event) {
 						<input required onChange={(event) => handleData(event)} type="number" id="id" placeholder="Cédula" className="input input-id" />
 						<label for="name" className="label">Nombre</label>
 						<input required onChange={(event) => handleData(event)} type="text" id="name" placeholder="Nombres" className="input input-name" />
-            <label for="lastname" className="label">Apellidos</label>
+         			   <label for="lastname" className="label">Apellidos</label>
 						<input required onChange={(event) => handleData(event)} type="text" id="lastname" placeholder="Apellidos" className="input input-lastname" />
 						<label for="birthdate" className="label">Fecha de nacimiento</label>
 						<input required onChange={(event) => handleData(event)} type="date" id="birthdate" placeholder="Fecha de nacimiento" className="input input-birthdate" />
