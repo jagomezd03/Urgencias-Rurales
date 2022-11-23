@@ -6,8 +6,6 @@ const baseURL = "http://localhost:8080/api/v1/pacients/";
 
 
 const AddPatient = () => {
-	const url = "";
-	const [post, setPost] = useState(null);
 	const [patient, setPatient] = useState({
 		id: "",
 		name: "",
@@ -31,11 +29,7 @@ const AddPatient = () => {
 	}
 	
 		function createPatient() {
-			axios
-				.post(baseURL, patient)
-				.then((response) => {
-					setPost(response.data);
-				});
+			axios.post(baseURL, patient)
 			}
 	
 
@@ -59,12 +53,12 @@ const AddPatient = () => {
 						<label htmlFor="city" className="label">Ciudad</label>
 						<input required onChange={(event) => handleData(event)} type="tel" id="city" placeholder="Ciudad" className="input input-city" />
 						<label htmlFor="municipality" className="label">Municipio</label>
-						<input required type="text" id="municipality" placeholder="Municipio" className="input input-municipality" />
+						<input required onChange={(event) => handleData(event)} type="text" id="municipality" placeholder="Municipio" className="input input-municipality" />
 						<label htmlFor="address" className="label">Direccion</label>
 						<input required onChange={(event) => handleData(event)} type="text" id="address" placeholder="Direccion" className="input input-address" />
-						<label htmlFor="RH" className="label">RH</label>
-						<select required onChange={(event) => handleData(event)} id="RH" className="input input-RH" >
-							<option disabled defaultValue="RH">RH</option>
+						<label htmlFor="rh" className="label">RH</label>
+						<select required onChange={(event) => handleData(event)} id="rh" className="input input-rh" >
+							<option disabled defaultValue="rh">RH</option>
 							<option defaultValue="O-">O-</option>
 							<option defaultValue="O+">O+</option>
 							<option defaultValue="A-">A-</option>
@@ -75,16 +69,11 @@ const AddPatient = () => {
 							<option defaultValue="AB+">AB+</option>
 						</select>
 						<label htmlFor="height" className="label">Altura</label>
-						<input onChange={(event) => handleData(event)} type="number" id="height" placeholder="Altura" className="input input-height" />
+						<input onChange={(event) => handleData(event)} type="number" step="0.01" id="height" placeholder="Altura" className="input input-height" />
 						<label htmlFor="weight" className="label">Peso</label>
 						<input onChange={(event) => handleData(event)} type="number" id="weight" placeholder="Peso" className="input input-weight" />
 						<label htmlFor="allergies" className="label">Alergias</label>
 						<textarea onChange={(event) => handleData(event)} type="number" id="allergies" placeholder="Alergias" className="input input-allergies" />
-
-						{/* <label for="email" className="label">Email</label>
-						<input type="text" id="email" placeholder="medico@example.com" className="input input-email" />
-						<label for="password" className="label">Password</label>
-						<input type="password" id="password" placeholder="*********" className="input input-password" /> */}
 					</div>
 					<input type="submit" onClick={createPatient} defaultValue="Crear Paciente" className="primary-button login-button" />
 				</form>

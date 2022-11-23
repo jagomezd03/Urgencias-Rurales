@@ -1,22 +1,29 @@
 import React from 'react';
-import '@styles/ProductInfo.scss';
+import gabage from "@icons/garbage.png";
+import axios from "axios";
 
 
-const ProductInfo = () => {
+const PatientInfo = ({patient}) => {
+	let api = `http://localhost:8080/api/v1/doctors/`;
+
+	function deletePatient(id) {
+    axios
+      .delete(`${api}/${id}`)
+      .then(() => {
+        alert("Patient deleted!");
+      });
+  }
 	return (
-		<>
-			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" />
-			<div className="ProductInfo">
-				<p>$35,00</p>
-				<p>Bike</p>
-				<p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-				<button className="primary-button add-to-cart-button">
-					<img src="" alt="add to cart" />
-					Add to cart
-				</button>
-			</div>
-		</>
+    <tr>
+      <td><strong>{patient.name} {patient.lastname}</strong></td>
+      <td>{patient.rh}</td>
+      <td>{patient.birthdate}</td>
+      <td>{patient.weight}</td>
+      <td>{patient.height}</td>
+      <td>{patient.allergies}</td>
+      <td><img onClick={()=>{deletePatient(patient.id)}} height="30" width="30" alt='Delete patient' src={gabage}/></td>
+    </tr>
 	);
 }
 
-export default ProductInfo;
+export default PatientInfo;

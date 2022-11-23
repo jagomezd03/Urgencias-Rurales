@@ -3,16 +3,12 @@ import { NavLink } from "react-router-dom";
 import "@styles/Doctors.scss";
 import useGetPerson from '../hooks/useGetPerson'
 
-
-
 import banner from "@logos/doctor-heart.png";
-
+import DoctorInfo from '@components/DoctorInfo'
 
 const Doctors = () => {
   let api = `http://localhost:8080/api/v1/doctors/`;
   let allItems = useGetPerson(api)
-  console.log(allItems)
-
   return (
     <>
     <section className='banner'>
@@ -36,14 +32,8 @@ const Doctors = () => {
     </tr>
   </thead>
   <tbody>
-  {allItems?.map(character => (
-    <tr>
-      <td><strong>{character.name} {character.lastname}</strong></td>
-      <td>{character.rh}</td>
-      <td>{character.specialty}</td>
-      <td>{character.schedule}</td>
-      <td>{character.cellphone}</td>
-    </tr>
+  {allItems?.map(doctor => (
+    <DoctorInfo doctor={doctor} key={doctor.id}/>
   ))}
   </tbody>
 </table>

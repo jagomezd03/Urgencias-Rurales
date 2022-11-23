@@ -9,7 +9,7 @@ const AddDoctor = () => {
 	const url = "";
 	const [post, setPost] = useState(null);
 	const [doctor, setDoctor] = useState({
-    id: "",
+    cc: "",
 		name: "",
 		lastname: "",
 		birthdate: "",
@@ -32,9 +32,6 @@ function handleData(event) {
 function createDoctor() {
 	axios
 		.post(baseURL, doctor)
-		.then((response) => {
-			setPost(response.data);
-		});
 	}
 
 
@@ -44,8 +41,8 @@ function createDoctor() {
 				<h1 className="title">Agregar Médico</h1>
 				<form action="/" className="form">
 					<div>
-						<label htmlFor="id" className="label">Cédula</label>
-						<input required onChange={(event) => handleData(event)} type="number" id="id" placeholder="Cédula" className="input input-id" />
+						<label htmlFor="cc" className="label">Cédula</label>
+						<input required onChange={(event) => handleData(event)} type="number" id="cc" placeholder="Cédula" className="input input-cc" />
 						<label htmlFor="name" className="label">Nombre</label>
 						<input required onChange={(event) => handleData(event)} type="text" id="name" placeholder="Nombres" className="input input-name" />
          			   <label htmlFor="lastname" className="label">Apellidos</label>
@@ -57,11 +54,11 @@ function createDoctor() {
 						<label htmlFor="city" className="label">Ciudad</label>
 						<input required onChange={(event) => handleData(event)} type="tel" id="city" placeholder="Ciudad" className="input input-city" />
 						<label htmlFor="municipality" className="label">Municipio</label>
-						<input required type="text" id="municipality" placeholder="Municipio" className="input input-municipality" />
+						<input required onChange={(event) => handleData(event)} type="text" id="municipality" placeholder="Municipio" className="input input-municipality" />
 						<label htmlFor="address" className="label">Direccion</label>
 						<input required onChange={(event) => handleData(event)} type="text" id="address" placeholder="Direccion" className="input input-address" />
-						<label htmlFor="RH" className="label">RH</label>
-						<select required onChange={(event) => handleData(event)} id="RH" className="input input-RH" >
+						<label htmlFor="rh" className="label">RH</label>
+						<select required onChange={(event) => handleData(event)} id="rh" className="input input-rh" >
 							<option defaultValue="O-" >O-</option>
 							<option defaultValue="O+">O+</option>
 							<option defaultValue="A-">A-</option>

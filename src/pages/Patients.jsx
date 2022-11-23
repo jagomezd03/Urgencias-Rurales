@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import "@styles/Patients.scss";
 import { NavLink } from "react-router-dom";
 import useGetPerson from '../hooks/useGetPerson'
+import PatientInfo from "../components/PatientInfo";
+
 
 import banner from "@logos/Doctor measuring blood pressure to male patient.png";
 
 
-
 const Patients = () => {
   let api = `http://localhost:8080/api/v1/pacients/`;
+
   let allItems = useGetPerson(api)
-  //let [fetchedData, updateFetchedData] = useState([]);
-  console.log(allItems)
 
   return (
     <>
@@ -25,6 +25,7 @@ const Patients = () => {
 
     </section>
     <section>
+    {allItems && 
     <table>
   <thead>
     <tr>
@@ -34,21 +35,15 @@ const Patients = () => {
       <th>Peso</th>
       <th>Altura</th>
       <th>Alergias</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-  {allItems?.map(character => (
-    <tr>
-      <td><strong>{character.name} {character.lastname}</strong></td>
-      <td>{character.rh}</td>
-      <td>{character.birthdate}</td>
-      <td>{character.weight}</td>
-      <td>{character.height}</td>
-      <td>{character.allergies}</td>
-    </tr>
+  {allItems?.map(patient => (
+    <PatientInfo patient={patient} key={patient.id}/>
   ))}
   </tbody>
-</table>
+</table>}
     </section>
 </>
   );
