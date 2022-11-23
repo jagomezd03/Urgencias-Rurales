@@ -39,8 +39,6 @@ const AddMedicine = () => {
             <input required onChange={(event) => handleData(event)} type="number" id="price" placeholder="precio" className="input input-price" />
             <label for="dose" className="label">Dosis</label>
             <input required onChange={(event) => handleData(event)} type="text" id="dose" placeholder="Dosis resetada" className="input input-dose" />
-            <label for="address" className="label">Direccion</label>
-            <input onChange={(event) => handleData(event)}type="text" id="address" placeholder="Direccion" className="input input-address" />
           </div>
           <input type="submit" value="Create" className="primary-button login-button" />
         </form>

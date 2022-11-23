@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import "@styles/Doctors.scss";
+import useGetPerson from '../hooks/useGetPerson'
+
 
 
 import banner from "@logos/doctor-heart.png";
 
 
 const Doctors = () => {
+  let api = `http://localhost:8080/api/v1/doctors/`;
+  let allItems = useGetPerson(api)
+  console.log(allItems)
 
   return (
+    <>
     <section className='banner'>
       <div>
         <h2 className=''>¡Bienvenido a la sección de Médicos!</h2>
@@ -18,6 +24,31 @@ const Doctors = () => {
       <img className="banner-image" alt="Doctor y Corazon" src={banner}  />
 
     </section>
+    <section>
+    <table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>RH</th>
+      <th>Especialidad</th>
+      <th>Horario</th>
+      <th>Celular</th>
+    </tr>
+  </thead>
+  <tbody>
+  {allItems?.map(character => (
+    <tr>
+      <td><strong>{character.name} {character.lastname}</strong></td>
+      <td>{character.rh}</td>
+      <td>{character.specialty}</td>
+      <td>{character.schedule}</td>
+      <td>{character.cellphone}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+    </section>
+</>
   );
 };
 
