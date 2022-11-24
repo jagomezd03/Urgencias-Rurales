@@ -102,7 +102,7 @@ td {
 
 
 tbody:hover td {
-	color: transparent;
+	color: var(--grey);
 }
 
 tbody:hover tr:hover td {

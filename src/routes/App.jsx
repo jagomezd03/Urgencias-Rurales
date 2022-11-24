@@ -16,6 +16,7 @@ import '@styles/global.css';
 import AppContext from '../context/AppContext';
 import AddConsultation from '../pages/AddConsultation';
 import AddMedicine from '../pages/AddMedicine';
+import Medicine from '../pages/Medicine';
 //import useInitialState from '../hooks/useInitialState'
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
 					<Route exact path="/add-doctor" component={AddDoctor} />
 					<Route exact path="/add-consultation" component={AddConsultation} />
 					<Route exact path="/add-medicine" component={AddMedicine} />
+					<Route exact path="/medicine" component={Medicine} />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</Layout>

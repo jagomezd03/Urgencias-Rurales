@@ -20,11 +20,11 @@ const AddConsultation = () => {
     console.log(newConsultation);
   }
 
-  function createPatient() {
+  function createConsultation() {
     axios
-      .post(baseURL, patient)
-      .then((response) => {
-        setPost(response.data);
+      .post(baseURL, consultation)
+      .then(() => {
+        alert("Consulta creada");
       });
     }
 
@@ -42,10 +42,10 @@ const AddConsultation = () => {
             <input onChange={(event) => handleData(event)} type="date" id="date" placeholder="Fecha de la consulta" className="input input-date" />
             <label for="time" className="label">Hora</label>
             <input onChange={(event) => handleData(event)} type="time" id="time" placeholder="Hora de atencion" className="input input-time" />
-            <label for="Reason" className="label">Motivo consulta</label>
-            <input onChange={(event) => handleData(event)} type="text" id="Reason" placeholder="Motivo de la consulta" className="input input-Reason" />
+            <label for="reason" className="label">Motivo consulta</label>
+            <input onChange={(event) => handleData(event)} type="text" id="reason" placeholder="Motivo de la consulta" className="input input-Reason" />
           </div>
-          <input type="submit" value="Create" className="primary-button login-button" />
+          <input type="button" value="Create" className="primary-button login-button" />
         </form>
       </div>
     </div>

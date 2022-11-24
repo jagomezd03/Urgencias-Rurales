@@ -10,7 +10,7 @@ const PatientInfo = ({doctor}) => {
     axios
       .delete(`${api}/${id}`)
       .then(() => {
-        alert("Doctor deleted!");
+        alert("Medico eliminado");
       });
   }
 	return (

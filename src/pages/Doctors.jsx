@@ -29,6 +29,8 @@ const Doctors = () => {
       <th>Especialidad</th>
       <th>Horario</th>
       <th>Celular</th>
+      <th></th>
+
     </tr>
   </thead>
   <tbody>

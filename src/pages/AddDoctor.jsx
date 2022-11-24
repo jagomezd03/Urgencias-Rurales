@@ -26,12 +26,14 @@ function handleData(event) {
 	const newDoctor = {...doctor};
 	newDoctor[event.target.id] = event.target.value;
 	setDoctor(newDoctor)
-	console.log(newDoctor);
 }
 
 function createDoctor() {
 	axios
 		.post(baseURL, doctor)
+		.then(() => {
+			alert("Medico creado");
+		});
 	}
 
 
@@ -73,7 +75,7 @@ function createDoctor() {
 						<label htmlFor="schedule" className="label">Horario</label>
 						<textarea onChange={(event) => handleData(event)} type="text" id="schedule" placeholder="Horario" className="input input-schedule" />
 					</div>
-					<input type="submit" onClick={createDoctor} defaultValue="Crear Paciente" className="primary-button login-button" />
+					<input type="button" onClick={createDoctor} defaultValue="Crear Medico" className="primary-button login-button" />
 				</form>
 			</div>
 		</div>

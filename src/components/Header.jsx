@@ -27,6 +27,9 @@ const Header = () => {
           <li>
             <NavLink to="/doctors">Médicos</NavLink>
           </li>
+          <li>
+            <NavLink to="/medicine">Medicinas</NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-right">

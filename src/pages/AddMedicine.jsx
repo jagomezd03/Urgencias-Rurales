@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
+import axios from "axios";
+
 
 import '@styles/CreateForm.scss';
 
 const AddMedicine = () => {
-  const url = "";
+
+  let baseURL = `http://localhost:8080/api/v1/medicines/`;
 	const [medicine, setMedicine] = useState({
-		id: "",
 		name: "",
 		serial: "",
 		type: "",
 		lab: "",
 		dose: "",
-		address: "",
 	})
 
 	function handleData(event) {
 		const newMedicine = { ...medicine };
 		newMedicine[event.target.id] = event.target.value;
 		setMedicine(newMedicine)
-		console.log(newMedicine);
+    console.log(newMedicine);
+
 	}
+
+  function createMedicine() {
+    axios
+      .post(baseURL, medicine)
+      .then(() => {
+        alert("Medicina Agregada");
+      });
+    }
 
   return (
     <div className="CreateForm">
@@ -27,20 +37,18 @@ const AddMedicine = () => {
         <h1 className="title">Añadir Medicamentos</h1>
         <form action="/" className="form">
           <div>
-            <label for="name" className="label">Nombre Medicamento</label>
+            <label htmlFor="name" className="label">Nombre Medicamento</label>
             <input required onChange={(event) => handleData(event)} type="text" id="name" placeholder="Ingresar medicamento" className="input input-name" />
-            <label for="serial" className="label">Serial</label>
+            <label htmlFor="serial" className="label">Serial</label>
             <input required onChange={(event) => handleData(event)} type="text" id="serial" placeholder="Codigo serial" className="input input-serial" />
-            <label for="type" className="label">Tipo</label>
+            <label htmlFor="type" className="label">Tipo</label>
             <input required onChange={(event) => handleData(event)} type="text" id="type" placeholder="Tipo medicamento" className="input input-type" />
-            <label for="lab" className="label">Laboratorio</label>
+            <label htmlFor="lab" className="label">Laboratorio</label>
             <input required onChange={(event) => handleData(event)} type="text" id="lab" placeholder="Laboratorio" className="input input-lab" />
-            <label for="price" className="label">Valor Medicamento</label>
-            <input required onChange={(event) => handleData(event)} type="number" id="price" placeholder="precio" className="input input-price" />
-            <label for="dose" className="label">Dosis</label>
+            <label htmlFor="dose" className="label">Dosis</label>
             <input required onChange={(event) => handleData(event)} type="text" id="dose" placeholder="Dosis resetada" className="input input-dose" />
           </div>
-          <input type="submit" value="Create" className="primary-button login-button" />
+          <input type="button" onClick={createMedicine} defaultValue="Crear Medicina" className="primary-button login-button" />
         </form>
       </div>
     </div>

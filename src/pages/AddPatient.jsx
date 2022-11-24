@@ -25,7 +25,6 @@ const AddPatient = () => {
 		const newPatient = { ...patient };
 		newPatient[event.target.id] = event.target.value;
 		setPatient(newPatient)
-		console.log(newPatient);
 	}
 	
 		function createPatient() {
@@ -75,7 +74,7 @@ const AddPatient = () => {
 						<label htmlFor="allergies" className="label">Alergias</label>
 						<textarea onChange={(event) => handleData(event)} type="number" id="allergies" placeholder="Alergias" className="input input-allergies" />
 					</div>
-					<input type="submit" onClick={createPatient} defaultValue="Crear Paciente" className="primary-button login-button" />
+					<input type="button" onClick={createPatient} defaultValue="Crear Paciente" className="primary-button login-button" />
 				</form>
 			</div>
 		</div>
